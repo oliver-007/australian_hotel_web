@@ -13,6 +13,7 @@ import {
   CigaretteOff,
   CircleParking,
   CookingPot,
+  Divide,
   Facebook,
   Menu,
   WashingMachine,
@@ -26,10 +27,12 @@ import CarouselComponent from "../CarouselComponent";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Address_Contact from "../Address_Contact";
+import useWindowSize from "@/app/hooks/useWindowSize";
 
 const Hero = () => {
   const pathname = usePathname();
-
+  const { width } = useWindowSize();
+  console.log(width);
   const images = [
     "/images/caro1.jpg",
     "/images/caro2.jpg",
@@ -75,17 +78,112 @@ const Hero = () => {
   return (
     <div className="w-full  ">
       <div className="md:px-28">
-        <h3 className="uppercase text-center text-white font-bold bg-yellow-500">
-          book now
-        </h3>
-        <div className=" py-2 grid place-items-center bg-zinc-600 ">
-          <Image
-            src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
-            alt="logo"
-            width={200}
-            height={100}
-          />
-        </div>
+        {width > 992 ? (
+          <div className="grid grid-cols-4 max-w-[1400px] mx-auto bg-black/50 text-white ">
+            {/* -----logo , menu, icons---- */}
+            {/* lgoo */}
+            <div>
+              <div className="">
+                <h3 className="uppercase text-center text-white font-bold bg-yellow-500 h-10 flex items-center justify-center ">
+                  book now
+                </h3>
+                <div className="py-5 flex items-center justify-center">
+                  <Image
+                    src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
+                    alt="logo"
+                    width={200}
+                    height={100}
+                  />
+                </div>
+              </div>
+              {/* menu */}
+              <div className="space-y-1 px-4">
+                {links.length > 0 &&
+                  links.map(({ name, href }, index) => {
+                    const isActive = mounted && pathname === href;
+                    return (
+                      <Link
+                        key={index}
+                        href={href}
+                        className={`flex flex-col items-center justify-center py-2  ${
+                          isActive ? "bg-[#135482]  " : ""
+                        }  `}
+                      >
+                        {name}
+                      </Link>
+                    );
+                  })}
+              </div>
+              <div className="flex items-center justify-center py-5">
+                {/* ___--------- facebook icon -------- */}
+                <Link href="https://www.facebook.com" target="_blank">
+                  <div className=" px-5 py-2 bg-black/50 ">
+                    <Facebook size={30} />
+                  </div>
+                </Link>
+              </div>
+
+              {/* icons */}
+              <div className="grid grid-cols-2 gap-0 place-items-center-safe py-10 ">
+                {features.length > 0 &&
+                  features.map(({ icon: Icon, name }, index) => (
+                    <div
+                      key={index}
+                      className={`w-44 h-30  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
+                        index % 2 === 1 ? "border-r-0 " : ""
+                      } ${index >= features.length - 2 ? "border-b-0" : ""}`}
+                    >
+                      <Icon size={50} />
+                      <p> {name} </p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* ----- large scr carousel ---- */}
+            <div className="col-span-3">
+              <div className=" lg:max-h-[600px] lg:overflow-hidden ">
+                <CarouselComponent images={images} />
+              </div>
+              {/*--------- large scr photo gallery , selelct rooms, attractions -------*/}
+              <div className=" my-1 md:grid grid-cols-3 gap-x-1 ">
+                {menuFeatures.length > 0 &&
+                  menuFeatures.map(({ bg, titlle, href }, index) => (
+                    <div
+                      key={index}
+                      className=" h-[330px] w-full bg-cover bg-center "
+                      style={{ backgroundImage: `url(${bg})` }}
+                    >
+                      <Link href={href}>
+                        <div
+                          className=" h-[60px] flex items-center
+                  justify-center opacity-70 text-white textbold
+           capitalize text-2xl text-center my-1 "
+                          style={{ backgroundColor: "#135482" }}
+                        >
+                          <p>{titlle} </p>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="">
+            <h3 className="uppercase text-center text-white font-bold bg-yellow-500">
+              book now
+            </h3>
+            <div className=" py-2 grid place-items-center bg-zinc-600 ">
+              <Image
+                src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
+                alt="logo"
+                width={200}
+                height={100}
+              />
+            </div>
+          </div>
+        )}
 
         {/* ------------- menu ---------------- */}
         <div className="flex items-center justify-between bg-[#135482] text-white ">
@@ -136,10 +234,12 @@ const Hero = () => {
         </div>
 
         {/*-------------- carousel--------- */}
-        <CarouselComponent images={images} />
+        <div className=" lg:hidden">
+          <CarouselComponent images={images} />
+        </div>
 
         {/*-------- icons----------- */}
-        <div className="grid grid-cols-2 gap-1 py-2 bg-black/50 md:flex md:justify-around ">
+        <div className="grid grid-cols-2 gap-1 py-2 bg-black/50 md:flex md:justify-around lg:hidden ">
           {features.length > 0 &&
             features.map(({ icon: Icon, name }, index) => (
               <div
@@ -153,7 +253,7 @@ const Hero = () => {
         </div>
 
         {/* photo gallery , selelct rooms, attractions */}
-        <div className=" my-1 md:grid grid-cols-3 gap-x-1 ">
+        <div className=" my-1 md:grid grid-cols-3 gap-x-1 lg:hidden ">
           {menuFeatures.length > 0 &&
             menuFeatures.map(({ bg, titlle, href }, index) => (
               <div
@@ -177,8 +277,8 @@ const Hero = () => {
       </div>
 
       {/* check-in, check-out, check availability */}
-      <div className="w-full py-4 bg-[#135482] ">
-        <div className=" flex-col gap-y-4 flex  md:flex-row  gap-x-5 items-center justify-center ">
+      <div className="w-full py-4 bg-[#135482] lg:flex items-center justify-center gap-x-10 ">
+        <div className="flex flex-col gap-y-4  md:flex-row md:gap-x-10 lg:gap-x-5 items-center justify-center ">
           <DatePicker status="check-in" />
           <DatePicker status="check-out" />
         </div>
@@ -188,7 +288,7 @@ const Hero = () => {
           <Button className="capitalize">check availability</Button>
         </div>
       </div>
-      <div className="md:px-28 text-zinc-800">
+      <div className="md:px-28 lg:pl-[260px] bg-white   ">
         <Address_Contact />
       </div>
     </div>

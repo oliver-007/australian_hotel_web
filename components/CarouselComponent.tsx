@@ -25,12 +25,12 @@ const CarouselComponent = ({ images }: { images: string[] }) => {
               return (
                 <CarouselItem key={index}>
                   {" "}
-                  <div className="relative w-full h-[200px] md:h-[400px] ">
+                  <div className="relative w-full h-[200px] md:h-[400px] lg:h-[800px]  ">
                     <Image
                       src={img}
                       alt={`slide ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-cover "
                     />
                   </div>{" "}
                 </CarouselItem>

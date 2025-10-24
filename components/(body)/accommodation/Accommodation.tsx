@@ -9,7 +9,7 @@ const Accommodation = () => {
   ];
 
   return (
-    <div className=" w-full bg-white px-4 py-8">
+    <div className=" w-full bg-white px-4 py-8 ">
       {/* -------------- heading------------- */}
       <HeadingComponent title="accommodation" />
 

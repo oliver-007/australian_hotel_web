@@ -7,10 +7,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
+import useWindowSize from "@/app/hooks/useWindowSize";
 
 const Footer = () => {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
+  const { width } = useWindowSize();
   // for fixing hydration error , using directly usePathname() was the reason
   useEffect(() => setMounted(true), []);
 
@@ -27,73 +29,76 @@ const Footer = () => {
 
   return (
     <div className="bg-[#135482] w-full ">
-      <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 md:flex-row  md:px-28  md:py-12  ">
-        <div className=" md:w-1/2  py-3 space-y-3 ">
-          <Image
-            src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
-            alt="logo"
-            width={200}
-            height={100}
-          />
-          <Button className="uppercase bg-yellow-300 hover:bg-black/50 hover:text-white text-zinc-800  ">
-            {" "}
-            book online{" "}
-          </Button>
-        </div>
-        {/* ---- address & contact info-----  */}
-        <div className="md:w-1/2 px-5 md:px-0">
-          <h1 className="capitalize text-center  text-2xl font-bold">
-            {" "}
-            the aussie rest{" "}
-          </h1>
-          <div className="">
-            {/* address */}
-            <div className="flex text-center  ">
-              <MapPin />
-              <p>163-167 Vincent Street, Cessnock, NSW, 2325, Australia</p>
-            </div>
-            {/* contact info */}
-            <div className=" flex flex-col items-center justify-center ">
-              <Link
-                href="tel:+0249914712"
-                className="flex my-3 gap-x-2 text-xs"
-              >
-                <Phone size={15} />
-                (02) 4991 4712
-              </Link>
-              <Link
-                href="mailto:vinevalleyinn@yahoo.com "
-                className="flex my-3 gap-x-2 text-xs
-             "
-              >
-                <Mail size={15} />
-                vinevalleyinn@yahoo.com
-              </Link>
+      <div className="lg:flex lg:justify-center ">
+        <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 md:flex-row  md:px-28  md:py-12  ">
+          {/* ------- logo,  btn ------- */}
+          <div className=" md:w-1/2  py-3  flex flex-col gap-y-5 items-center justify-center ">
+            <Image
+              src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
+              alt="logo"
+              width={200}
+              height={100}
+            />
+            <Button className="uppercase bg-yellow-300 hover:bg-black/50 hover:text-white text-zinc-800  ">
+              {" "}
+              book online{" "}
+            </Button>
+          </div>
+          {/* ---- address & contact info-----  */}
+          <div className="md:w-1/2 px-5 md:px-0">
+            <h1 className="capitalize text-center  text-2xl font-bold">
+              {" "}
+              the aussie rest{" "}
+            </h1>
+            <div className="">
+              {/* address */}
+              <div className="flex  justify-center gap-x-2 text-center  ">
+                <MapPin />
+                <p>43 Shedden St Cessnock, NSW 2325, Australia</p>
+              </div>
+              {/* contact info */}
+              <div className=" flex flex-col items-center justify-center ">
+                <Link
+                  href="tel:+0249914197"
+                  className="flex items-center justify-center my-3 gap-x-2 text-xs lg:text-base"
+                >
+                  <Phone size={width > 993 ? 20 : 15} />
+                  0249914197
+                </Link>
+                <Link
+                  href="mailto:enquiries@aussierest.com.au"
+                  className="flex items-center justify-center my-3 gap-x-2 text-xs lg:text-base
+                "
+                >
+                  <Mail size={width > 993 ? 20 : 15} />
+                  enquiries@aussierest.com.au
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <hr />
-      {/* -------all menu  ------ */}
-      <div className="grid grid-cols-2 gap-y-3 place-items-center-safe py-3 md:py-12 ">
-        {links.length > 0 &&
-          links.map(({ name, href }, index) => {
-            const isActive = mounted && pathname === href;
-            return (
-              <Link
-                key={index}
-                href={href}
-                className={`w-fit text-white text-xs hover:bg-black/50 px-2 py-1 ${
-                  isActive
-                    ? " w-fit border border-white shadow-sm shadow-yellow-200  px-2 py-1  "
-                    : ""
-                }  `}
-              >
-                {" "}
-                {name}{" "}
-              </Link>
-            );
-          })}
+        <hr />
+        {/* -------all menu  ------ */}
+        <div className="grid grid-cols-2 gap-y-3 place-items-center-safe py-3 md:py-12 ">
+          {links.length > 0 &&
+            links.map(({ name, href }, index) => {
+              const isActive = mounted && pathname === href;
+              return (
+                <Link
+                  key={index}
+                  href={href}
+                  className={`w-fit text-white text-xs hover:bg-black/50 px-2 py-1 ${
+                    isActive
+                      ? " w-fit border border-white shadow-sm shadow-yellow-200  px-2 py-1  "
+                      : ""
+                  }  `}
+                >
+                  {" "}
+                  {name}{" "}
+                </Link>
+              );
+            })}
+        </div>
       </div>
 
       {/* ------ copy right ------ */}
