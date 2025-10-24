@@ -39,10 +39,15 @@ const Footer = () => {
               width={200}
               height={100}
             />
-            <Button className="uppercase bg-yellow-300 hover:bg-black/50 hover:text-white text-zinc-800  ">
-              {" "}
-              book online{" "}
-            </Button>
+            <Link
+              href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=no"
+              target="_blank"
+            >
+              <Button className="uppercase bg-yellow-300 hover:bg-black/50 hover:text-white text-zinc-800 cursor-pointer ">
+                {" "}
+                book online{" "}
+              </Button>
+            </Link>
           </div>
           {/* ---- address & contact info-----  */}
           <div className="md:w-1/2 px-5 md:px-0">

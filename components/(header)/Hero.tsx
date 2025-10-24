@@ -285,7 +285,14 @@ const Hero = () => {
 
         <p className="text-white text-center font-bold py-5">1 Night Stay</p>
         <div className="text-center">
-          <Button className="capitalize">check availability</Button>
+          <Link
+            href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=no"
+            target="_blank"
+          >
+            <Button className="capitalize cursor-pointer">
+              check availability
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="md:px-28 lg:pl-[260px] bg-white   ">
