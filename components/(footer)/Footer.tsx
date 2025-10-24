@@ -103,7 +103,7 @@ const Footer = () => {
 
       {/* ------ copy right ------ */}
       <div className="bg-yellow-300 text-zinc-700 text-center w-full py-3 capitalize ">
-        &copy; copyright reserved by vine valley inn 2025. website by oliver
+        &copy; copyright reserved by the aussie rest 2025. created by oliver
         ahmed.
       </div>
     </div>
