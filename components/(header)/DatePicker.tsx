@@ -35,7 +35,7 @@ const DatePicker = ({ status }: { status: string }) => {
   const [month, setMonth] = React.useState<Date | undefined>(date);
   const [value, setValue] = React.useState(formatDate(date));
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 max-w-[250px]">
       <Label htmlFor="date" className="px-1 capitalize text-white">
         {status}
       </Label>

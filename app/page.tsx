@@ -6,14 +6,12 @@ import Attractions from "@/components/(body)/attractions/Attractions";
 
 export default function Home() {
   return (
-    <div>
-      <div className="grid place-items-center">
-        <About_Us />
-        <Rules_Regulations />
-        <Accommodation />
-        <Attractions />
-        <LocationMap />
-      </div>
+    <div className="">
+      <About_Us />
+      <Rules_Regulations />
+      <Accommodation />
+      <Attractions />
+      <LocationMap />
     </div>
   );
 }

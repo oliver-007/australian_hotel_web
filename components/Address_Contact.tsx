@@ -4,14 +4,14 @@ import Link from "next/link";
 const Address_Contact = () => {
   return (
     <>
-      <div className="text-center px-5 grid gap-y-5 py-5 bg-white text-zinc-700   ">
+      <div className="px-5 py-5 text-white md:flex md:items-center md:justify-around ">
         {/* address */}
-        <div className="flex">
+        <div className="flex text-center md:w-1/2 ">
           <MapPin />
           <p>163-167 Vincent Street, Cessnock, NSW, 2325, Australia</p>
         </div>
         {/* contact info */}
-        <div className=" grid place-items-center w-full">
+        <div className=" grid place-items-center md:w-1/2 ">
           <Link href="tel:+0249914712" className="flex my-3 gap-x-2 text-xs">
             <Phone size={15} />
             (02) 4991 4712

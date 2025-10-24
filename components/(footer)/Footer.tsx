@@ -6,6 +6,7 @@ import Address_Contact from "../Address_Contact";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const pathname = usePathname();
@@ -26,18 +27,55 @@ const Footer = () => {
 
   return (
     <div className="bg-[#135482] w-full ">
-      <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2">
-        <Image src="/images/logo.png" alt="logo" width={100} height={100} />
-        <Button className="uppercase bg-yellow-300 hover:bg-black/50 hover:text-white text-zinc-800  ">
-          {" "}
-          book online{" "}
-        </Button>
-        <h1 className="capitalize  text-3xl font-bold"> vine valley inn </h1>
+      <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 md:flex-row  md:px-28  md:py-12  ">
+        <div className=" md:w-1/2  py-3 space-y-3 ">
+          <Image
+            src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
+            alt="logo"
+            width={200}
+            height={100}
+          />
+          <Button className="uppercase bg-yellow-300 hover:bg-black/50 hover:text-white text-zinc-800  ">
+            {" "}
+            book online{" "}
+          </Button>
+        </div>
         {/* ---- address & contact info-----  */}
-        <Address_Contact />
+        <div className="md:w-1/2 px-5 md:px-0">
+          <h1 className="capitalize text-center  text-2xl font-bold">
+            {" "}
+            the aussie rest{" "}
+          </h1>
+          <div className="">
+            {/* address */}
+            <div className="flex text-center  ">
+              <MapPin />
+              <p>163-167 Vincent Street, Cessnock, NSW, 2325, Australia</p>
+            </div>
+            {/* contact info */}
+            <div className=" flex flex-col items-center justify-center ">
+              <Link
+                href="tel:+0249914712"
+                className="flex my-3 gap-x-2 text-xs"
+              >
+                <Phone size={15} />
+                (02) 4991 4712
+              </Link>
+              <Link
+                href="mailto:vinevalleyinn@yahoo.com "
+                className="flex my-3 gap-x-2 text-xs
+             "
+              >
+                <Mail size={15} />
+                vinevalleyinn@yahoo.com
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
+      <hr />
       {/* -------all menu  ------ */}
-      <div className="grid grid-cols-2 gap-y-3 place-items-center-safe">
+      <div className="grid grid-cols-2 gap-y-3 place-items-center-safe py-3 md:py-12 ">
         {links.length > 0 &&
           links.map(({ name, href }, index) => {
             const isActive = mounted && pathname === href;
@@ -60,7 +98,8 @@ const Footer = () => {
 
       {/* ------ copy right ------ */}
       <div className="bg-yellow-300 text-zinc-700 text-center w-full py-3 capitalize ">
-        &copy; copyright reserved by vine valley inn 2025
+        &copy; copyright reserved by vine valley inn 2025. website by oliver
+        ahmed.
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const Attractions = () => {
   ];
 
   return (
-    <div className="bg-white w-full px-4 ">
+    <div className="w-full  px-4 md:px-28 bg-[#F8F9FA] py-8 ">
       <HeadingComponent title="attractions" />
       <CarouselComponent images={atcImgs} />
       <h2 className="uppercase text-2xl text-[#135482] font-semibold pt-2">
@@ -34,16 +34,18 @@ const Attractions = () => {
             </ul>
           ))}
       </div>
-      <Link href="/attractions">
-        <Button
-          variant="default"
-          className="hover:bg-amber-300 hover:text-zinc-700 m  "
-          size="sm"
-        >
-          {" "}
-          Read more...{" "}
-        </Button>
-      </Link>
+      <div className="text-center">
+        <Link href="/attractions">
+          <Button
+            variant="default"
+            className="hover:bg-amber-300 hover:text-zinc-700 m  "
+            size="sm"
+          >
+            {" "}
+            Read more...{" "}
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };
