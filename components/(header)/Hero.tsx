@@ -13,7 +13,6 @@ import {
   CigaretteOff,
   CircleParking,
   CookingPot,
-  Divide,
   Facebook,
   Menu,
   WashingMachine,
@@ -78,6 +77,7 @@ const Hero = () => {
   return (
     <div className="w-full  ">
       <div className="md:px-28">
+        {/* ------------ mobile view ------------ */}
         {width > 992 ? (
           <div className="grid grid-cols-4 max-w-[1400px] mx-auto bg-black/50 text-white ">
             {/* -----logo , menu, icons---- */}
@@ -88,12 +88,14 @@ const Hero = () => {
                   book now
                 </h3>
                 <div className="py-5 flex items-center justify-center">
-                  <Image
-                    src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
-                    alt="logo"
-                    width={200}
-                    height={100}
-                  />
+                  <Link href="/">
+                    <Image
+                      src="/images/aus-logo.png"
+                      alt="logo"
+                      width={200}
+                      height={100}
+                    />
+                  </Link>
                 </div>
               </div>
               {/* menu */}
@@ -106,7 +108,7 @@ const Hero = () => {
                         key={index}
                         href={href}
                         className={`flex flex-col items-center justify-center py-2  ${
-                          isActive ? "bg-[#135482]  " : ""
+                          isActive ? "bg-oliver  " : ""
                         }  `}
                       >
                         {name}
@@ -158,8 +160,7 @@ const Hero = () => {
                         <div
                           className=" h-[60px] flex items-center
                   justify-center opacity-70 text-white textbold
-           capitalize text-2xl text-center my-1 "
-                          style={{ backgroundColor: "#135482" }}
+           capitalize text-2xl text-center my-1 bg-oliver "
                         >
                           <p>{titlle} </p>
                         </div>
@@ -171,22 +172,24 @@ const Hero = () => {
           </div>
         ) : (
           <div className="">
-            <h3 className="uppercase text-center text-white font-bold bg-yellow-500">
+            <h3 className="uppercase text-center text-white font-bold bg-oliver ">
               book now
             </h3>
             <div className=" py-2 grid place-items-center bg-zinc-600 ">
-              <Image
-                src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
-                alt="logo"
-                width={200}
-                height={100}
-              />
+              <Link href="/">
+                <Image
+                  src="/images/aus-logo.png"
+                  alt="logo"
+                  width={200}
+                  height={100}
+                />
+              </Link>
             </div>
           </div>
         )}
 
         {/* ------------- menu ---------------- */}
-        <div className="flex items-center justify-between bg-[#135482] text-white ">
+        <div className="flex items-center justify-between bg-oliver text-white ">
           {/* Burger menu (mobile) */}
           <div className="lg:hidden">
             <Sheet open={open} onOpenChange={setOpen}>
@@ -199,7 +202,7 @@ const Hero = () => {
                   )}
                 </Button>
               </SheetTrigger>
-              <SheetContent side="top" className="w-full bg-[#135482] ">
+              <SheetContent side="top" className="w-full bg-oliver ">
                 <SheetHeader>
                   <SheetTitle className="text-white">Menu</SheetTitle>
                 </SheetHeader>
@@ -265,8 +268,7 @@ const Hero = () => {
                   <div
                     className=" h-[60px] flex items-center
                   justify-center opacity-70 text-white textbold
-           capitalize text-2xl text-center my-1 "
-                    style={{ backgroundColor: "#135482" }}
+           capitalize text-2xl text-center my-1 bg-oliver "
                   >
                     <p>{titlle} </p>
                   </div>
@@ -277,7 +279,7 @@ const Hero = () => {
       </div>
 
       {/* check-in, check-out, check availability */}
-      <div className="w-full py-4 bg-[#135482] lg:flex items-center justify-center gap-x-10 ">
+      <div className="w-full py-4 bg-oliver lg:flex items-center justify-center gap-x-10 ">
         <div className="flex flex-col gap-y-4  md:flex-row md:gap-x-10 lg:gap-x-5 items-center justify-center ">
           <DatePicker status="check-in" />
           <DatePicker status="check-out" />

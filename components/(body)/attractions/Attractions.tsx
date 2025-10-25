@@ -27,7 +27,7 @@ const Attractions = () => {
           <CarouselComponent images={atcImgs} />
         </div>
         <div>
-          <h2 className="uppercase text-2xl text-[#135482] font-semibold pt-2">
+          <h2 className="uppercase text-2xl text-oliver font-semibold pt-2">
             lsit of attractions
           </h2>
           <div className="pl-5 py-5 space-y-2">

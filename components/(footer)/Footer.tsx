@@ -28,7 +28,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#135482] w-full ">
+    <div className="bg-oliver w-full ">
       <div className="lg:flex lg:justify-center ">
         <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 md:flex-row  md:px-28  md:py-12  ">
           {/* ------- logo,  btn ------- */}
@@ -108,8 +108,8 @@ const Footer = () => {
 
       {/* ------ copy right ------ */}
       <div className="bg-yellow-300 text-zinc-700 text-center w-full py-3 capitalize ">
-        &copy; copyright reserved by the aussie rest 2025. created by oliver
-        ahmed.
+        &copy; copyright reserved by the aussie rest 2025. created by Focuson
+        Digital.
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const LocationMap = () => {
       <HeadingComponent title="location map" />
       <div className=" lg:grid lg:grid-cols-3 lg:gap-x-5 lg:px-28">
         <div className="py-2 flex flex-col gap-y-3">
-          <h2 className="uppercase text-[#135482] text-2xl font-semibold ">
+          <h2 className="uppercase text-oliver text-2xl font-semibold ">
             {" "}
             location map{" "}
           </h2>
