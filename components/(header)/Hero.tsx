@@ -70,8 +70,8 @@ const Hero = () => {
   const links = [
     { name: "Home", href: "/" },
     { name: "Accommodation", href: "/accommodation" },
-    { name: "Photo Gallery", href: "/photo_galery" },
-    { name: "Contact", href: "/contact" },
+    { name: "Photo Gallery", href: "/photo_gallery" },
+    { name: "Contact", href: "/contact_us" },
   ];
 
   return (
@@ -84,8 +84,12 @@ const Hero = () => {
             {/* lgoo */}
             <div>
               <div className="">
-                <h3 className="uppercase text-center text-white font-bold bg-oliver h-10 flex items-center justify-center ">
-                  book now
+                <h3 className=" py-1 uppercase text-center text-white font-bold bg-oliver h-10 flex items-center justify-center ">
+                  <Link href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes">
+                    <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer">
+                      book now
+                    </Button>
+                  </Link>
                 </h3>
                 <div className="py-5 flex items-center justify-center">
                   <Link href="/">
@@ -108,7 +112,9 @@ const Hero = () => {
                         key={index}
                         href={href}
                         className={`flex flex-col items-center justify-center py-2  ${
-                          isActive ? "bg-oliver  " : ""
+                          isActive
+                            ? "bg-oliver  "
+                            : "hover:bg-yellow-500 hover:text-white"
                         }  `}
                       >
                         {name}
@@ -172,8 +178,15 @@ const Hero = () => {
           </div>
         ) : (
           <div className="">
-            <h3 className="uppercase text-center text-white font-bold bg-oliver ">
-              book now
+            <h3 className=" py-2 uppercase text-center text-white font-bold bg-oliver ">
+              <Link
+                href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes"
+                target="_blank"
+              >
+                <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer">
+                  book now
+                </Button>
+              </Link>
             </h3>
             <div className=" py-2 grid place-items-center bg-zinc-600 ">
               <Link href="/">

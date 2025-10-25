@@ -33,12 +33,14 @@ const Footer = () => {
         <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 md:flex-row  md:px-28  md:py-12  ">
           {/* ------- logo,  btn ------- */}
           <div className=" md:w-1/2  py-3  flex flex-col gap-y-5 items-center justify-center ">
-            <Image
-              src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
-              alt="logo"
-              width={200}
-              height={100}
-            />
+            <Link href="/">
+              <Image
+                src="https://aussierest.com.au/wp-content/uploads/2025/07/Aussie-Rest-Motel-Logo-White.svg"
+                alt="logo"
+                width={200}
+                height={100}
+              />
+            </Link>
             <Link
               href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=no"
               target="_blank"
