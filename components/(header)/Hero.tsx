@@ -84,7 +84,7 @@ const Hero = () => {
             {/* lgoo */}
             <div>
               <div className="">
-                <h3 className="uppercase text-center text-white font-bold bg-yellow-500 h-10 flex items-center justify-center ">
+                <h3 className="uppercase text-center text-white font-bold bg-oliver h-10 flex items-center justify-center ">
                   book now
                 </h3>
                 <div className="py-5 flex items-center justify-center">
