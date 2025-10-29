@@ -12,10 +12,12 @@ import {
   AirVent,
   CigaretteOff,
   CircleParking,
+  Coffee,
   CookingPot,
   Facebook,
+  Mail,
   Menu,
-  WashingMachine,
+  Phone,
   Wifi,
   X,
 } from "lucide-react";
@@ -44,7 +46,7 @@ const Hero = () => {
     { icon: CircleParking, name: "Parking" },
     { icon: AirVent, name: "Air Condition" },
     { icon: CigaretteOff, name: "No Smoking" },
-    { icon: WashingMachine, name: "Laundry" },
+    { icon: Coffee, name: "Coffee Machine" },
     { icon: CookingPot, name: "Kitchen" },
   ];
 
@@ -120,6 +122,26 @@ const Hero = () => {
                       </Link>
                     );
                   })}
+              </div>
+              <div className="my-4">
+                {/* contact info */}
+                <div className="  flex flex-col items-center justify-center">
+                  <Link
+                    href="tel:+0249914197"
+                    className="flex items-center justify-center my-3 gap-x-2 text-base "
+                  >
+                    <Phone size={width > 993 ? 20 : 15} />
+                    02 4991 4197
+                  </Link>
+                  <Link
+                    href="mailto:enquiries@aussierest.com.au"
+                    className="flex lg:items-center lg:justify-center my-3 gap-x-2 text-xs lg:text-base
+             "
+                  >
+                    <Mail size={width > 993 ? 20 : 15} />
+                    enquiries@aussierest.com.au
+                  </Link>
+                </div>
               </div>
               <div className="flex items-center justify-center py-5">
                 {/* ___--------- facebook icon -------- */}

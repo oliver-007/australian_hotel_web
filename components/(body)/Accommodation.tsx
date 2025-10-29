@@ -3,34 +3,41 @@ import Link from "next/link";
 
 const Accommodation = () => {
   const acd = [
-    { bg: "/images/caro1.jpg", title: "family room standard" },
-    { bg: "/images/caro2.jpg", title: "twin room " },
-    { bg: "/images/caro3.jpg", title: "king room " },
+    { bg: "/images/family_room.webp", title: "family room" },
+    { bg: "/images/deluxe_king_room.webp", title: "deluxe king room " },
+    { bg: "/images/deluxe_family_room.webp", title: "deluxe family room " },
+    { bg: "/images/queen_room.webp", title: "queen  room " },
+    {
+      bg: "/images/queen_room_with_sofa_bed.webp",
+      title: "queen room with sofa bed ",
+    },
+    { bg: "/images/twin_room.webp", title: "twin room " },
   ];
 
   return (
     <div
       id="accommodation"
-      className=" w-full bg-white px-4 py-8 lg:grid lg:grid-cols-10 "
+      className="md:flex items-center justify-center w-full bg-white px-4 "
     >
-      <div className=""></div>
-      <div className=" lg:w-full  lg:col-span-8 ">
+      <div className=" lg:w-[1200px] md:w-[800px]">
         {/* ---------- ---- heading------------- */}
-        <HeadingComponent title="accommodation" />
+        <div className="py-5">
+          <HeadingComponent title="accommodation" />
+        </div>
 
         {/* --------- gallery --------- */}
 
-        <div className=" md:flex justify-around md:flex-wrap gap-x-1 lg:w-full  lg:grid lg:grid-cols-3 lg:h-[350px]  lg:gap-x-5 lg:p-3   ">
+        <div className="w-full flex flex-col justify-center md:flex-row md:flex-wrap md:gap-5   ">
           {acd.length > 0 &&
             acd.map(({ bg, title }, index) => (
               <div
                 key={index}
-                className="my-2 h-[150px] md:h-[250px] md:w-[400px] bg-cover bg-center flex items-center lg:w-full lg:h-full lg:my-0 "
+                className=" h-[200px] md:h-[250px] md:w-[380px] bg-cover bg-center "
                 style={{ backgroundImage: `url(${bg})` }}
               >
                 {" "}
                 <div className="w-full relative h-full group flex flex-col items-center justify-center gap-y-5  ">
-                  <div className="bg-yellow-300/80  capitalize  w-full md:group-hover:-translate-y-[90px] lg:group-hover:-translate-y-[127px] md:mt-23 md:py-1.5 py-1 group-hover:transition-transform duration-500 ease-in-out flex items-center justify-center ">
+                  <div className="bg-yellow-300/80  capitalize  w-full md:group-hover:-translate-y-[89px] lg:group-hover:-translate-y-[89px] md:mt-23 md:py-1.5 py-1 group-hover:transition-transform duration-500 ease-in-out flex items-center justify-center ">
                     <p className=" flex items-center  justify-center">
                       {" "}
                       {title}{" "}
