@@ -1,5 +1,5 @@
 import React from "react";
-import HeadingComponent from "../../HeadingComponent";
+import HeadingComponent from "../HeadingComponent";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

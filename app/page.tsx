@@ -1,14 +1,14 @@
-import LocationMap from "@/components/(body)/location/Location_map";
-import Accommodation from "@/components/(body)/accommodation/Accommodation";
-import Rules_Regulations from "@/components/(body)/Rules_Regulations";
+import Accommodation from "@/components/(body)/Accommodation";
 import About_Us from "@/components/(body)/About_Us";
-import Attractions from "@/components/(body)/attractions/Attractions";
+import Attractions from "@/components/(body)/Attractions";
+import LocationMap from "@/components/(body)/Location_map";
+import Policies from "@/components/(body)/Policies";
 
 export default function Home() {
   return (
     <div className="">
       <About_Us />
-      <Rules_Regulations />
+      <Policies />
       <Accommodation />
       <Attractions />
       <LocationMap />

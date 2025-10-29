@@ -57,9 +57,9 @@ const Hero = () => {
     {
       bg: "/images/caro2.jpg",
       titlle: "photo gallery",
-      href: "#accommodation",
+      href: "/photo_gallery",
     },
-    { bg: "/images/caro4.jpg", titlle: "attractions", href: "#accommodation" },
+    { bg: "/images/caro4.jpg", titlle: "attractions", href: "#attractions" },
   ];
 
   const [open, setOpen] = useState(false);
@@ -69,9 +69,7 @@ const Hero = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Accommodation", href: "/accommodation" },
-    { name: "Photo Gallery", href: "/photo_gallery" },
-    { name: "Contact", href: "/contact_us" },
+    { name: "Accommodation", href: "#accommodation" },
   ];
 
   return (
@@ -109,6 +107,7 @@ const Hero = () => {
                     const isActive = mounted && pathname === href;
                     return (
                       <Link
+                        scroll={true}
                         key={index}
                         href={href}
                         className={`flex flex-col items-center justify-center py-2  ${
@@ -124,7 +123,10 @@ const Hero = () => {
               </div>
               <div className="flex items-center justify-center py-5">
                 {/* ___--------- facebook icon -------- */}
-                <Link href="https://www.facebook.com" target="_blank">
+                <Link
+                  href="https://www.facebook.com/Aussierestmotelcessnock"
+                  target="_blank"
+                >
                   <div className=" px-5 py-2 bg-black/50 ">
                     <Facebook size={30} />
                   </div>
@@ -220,12 +222,13 @@ const Hero = () => {
                   <SheetTitle className="text-white">Menu</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-6 flex flex-col gap-4 ">
-                  {links.map((link) => {
-                    const isActive = mounted && pathname === link.href;
+                  {links.map(({ name, href }, index) => {
+                    const isActive = mounted && pathname === href;
                     return (
                       <Link
-                        key={link.name}
-                        href={link.href}
+                        scroll={true}
+                        key={index}
+                        href={href}
                         className={` text-white text-lg transition-colors w-full text-center ${
                           isActive
                             ? " bg-zinc-400 font-semibold "
@@ -233,7 +236,7 @@ const Hero = () => {
                         }`}
                         onClick={() => setOpen(false)}
                       >
-                        {link.name}
+                        {name}
                       </Link>
                     );
                   })}
@@ -242,7 +245,10 @@ const Hero = () => {
             </Sheet>
           </div>
           {/* ___--------- facebook icon -------- */}
-          <Link href="https://www.facebook.com" target="_blank">
+          <Link
+            href="https://www.facebook.com/Aussierestmotelcessnock"
+            target="_blank"
+          >
             <div className="mr-3 lg:hidden">
               <Facebook size={20} />
             </div>

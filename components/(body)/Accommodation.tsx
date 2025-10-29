@@ -9,7 +9,10 @@ const Accommodation = () => {
   ];
 
   return (
-    <div className=" w-full bg-white px-4 py-8 lg:grid lg:grid-cols-10 ">
+    <div
+      id="accommodation"
+      className=" w-full bg-white px-4 py-8 lg:grid lg:grid-cols-10 "
+    >
       <div className=""></div>
       <div className=" lg:w-full  lg:col-span-8 ">
         {/* ---------- ---- heading------------- */}
@@ -27,7 +30,7 @@ const Accommodation = () => {
               >
                 {" "}
                 <div className="w-full relative h-full group flex flex-col items-center justify-center gap-y-5  ">
-                  <div className="bg-yellow-300/80  capitalize  w-full md:group-hover:-translate-y-[93px] lg:group-hover:-translate-y-[131px] md:mt-23 md:py-1.5 py-1 group-hover:transition-transform duration-500 ease-in-out flex items-center justify-center ">
+                  <div className="bg-yellow-300/80  capitalize  w-full md:group-hover:-translate-y-[90px] lg:group-hover:-translate-y-[127px] md:mt-23 md:py-1.5 py-1 group-hover:transition-transform duration-500 ease-in-out flex items-center justify-center ">
                     <p className=" flex items-center  justify-center">
                       {" "}
                       {title}{" "}

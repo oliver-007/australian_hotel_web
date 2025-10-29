@@ -20,7 +20,7 @@ const Attractions = () => {
   ];
 
   return (
-    <div className="w-full  px-4 md:px-28 bg-[#F8F9FA] py-8 ">
+    <div id="attractions" className="w-full  px-4 md:px-28 bg-[#F8F9FA] py-8 ">
       <HeadingComponent title="attractions" />
       <div className="lg:flex lg:justify-around lg:items-center w-full">
         <div className=" lg:h-[500px] lg:overflow-hidden lg:w-[700px] ">
