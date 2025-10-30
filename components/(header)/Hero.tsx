@@ -75,28 +75,29 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-full  ">
-      <div className="md:px-28">
-        {/* ------------ mobile view ------------ */}
-        {width > 992 ? (
-          <div className="grid grid-cols-4 max-w-[1400px] mx-auto bg-black/50 text-white ">
+    <div className=" lg:flex flex-col items-center justify-center ">
+      <div className=" lg:max-w-[1000px] md:w-full  ">
+        {/* ------------ large screen view ------------ */}
+        {width >= 1024 ? (
+          <div className="grid grid-cols-5 bg-black/50 text-white ">
             {/* -----logo , menu, icons---- */}
-            {/* lgoo */}
-            <div>
+            <div className="col-span-2">
               <div className="">
-                <h3 className=" py-1 uppercase text-center text-white font-bold bg-oliver h-10 flex items-center justify-center ">
+                {/* -------- book now btn --------- */}
+
+                <h3 className=" tracking-[0.7em]  uppercase text-center text-white font-bold bg-oliver py-2 flex items-center justify-center  ">
                   <Link href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes">
-                    <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer">
+                    <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer  ">
                       book now
                     </Button>
                   </Link>
                 </h3>
-                <div className="py-5 flex items-center justify-center">
+                <div className="py-10 flex items-center justify-center">
                   <Link href="/">
                     <Image
                       src="/images/aus-logo.png"
                       alt="logo"
-                      width={200}
+                      width={300}
                       height={100}
                     />
                   </Link>
@@ -112,7 +113,7 @@ const Hero = () => {
                         scroll={true}
                         key={index}
                         href={href}
-                        className={`flex flex-col items-center justify-center py-2  ${
+                        className={`flex flex-col items-center justify-center py-1  ${
                           isActive
                             ? "bg-oliver  "
                             : "hover:bg-yellow-500 hover:text-white"
@@ -123,49 +124,49 @@ const Hero = () => {
                     );
                   })}
               </div>
-              <div className="my-4">
+              <div className="my-1">
                 {/* contact info */}
-                <div className="  flex flex-col items-center justify-center">
+                <div className="  flex flex-col items-center justify-between h-[55px] ">
                   <Link
                     href="tel:+0249914197"
-                    className="flex items-center justify-center my-3 gap-x-2 text-base "
+                    className="flex items-center justify-center gap-x-2 text-base "
                   >
-                    <Phone size={width > 993 ? 20 : 15} />
+                    <Phone size={width >= 1024 ? 20 : 15} />
                     02 4991 4197
                   </Link>
                   <Link
                     href="mailto:enquiries@aussierest.com.au"
-                    className="flex lg:items-center lg:justify-center my-3 gap-x-2 text-xs lg:text-base
+                    className="flex lg:items-center lg:justify-center gap-x-2 text-xs lg:text-base
              "
                   >
-                    <Mail size={width > 993 ? 20 : 15} />
+                    <Mail size={width >= 1024 ? 20 : 15} />
                     enquiries@aussierest.com.au
                   </Link>
                 </div>
               </div>
-              <div className="flex items-center justify-center py-5">
+              <div className="flex items-center justify-center">
                 {/* ___--------- facebook icon -------- */}
                 <Link
                   href="https://www.facebook.com/Aussierestmotelcessnock"
                   target="_blank"
                 >
-                  <div className=" px-5 py-2 bg-black/50 ">
-                    <Facebook size={30} />
+                  <div className=" p-3 rounded-full bg-black ">
+                    <Facebook size={20} />
                   </div>
                 </Link>
               </div>
 
               {/* icons */}
-              <div className="grid grid-cols-2 gap-0 place-items-center-safe py-10 ">
+              <div className="grid grid-cols-2 gap-0 place-items-center-safe mt-2 ">
                 {features.length > 0 &&
                   features.map(({ icon: Icon, name }, index) => (
                     <div
                       key={index}
-                      className={`w-44 h-30  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
+                      className={`w-50 h-20  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
                         index % 2 === 1 ? "border-r-0 " : ""
                       } ${index >= features.length - 2 ? "border-b-0" : ""}`}
                     >
-                      <Icon size={50} />
+                      <Icon size={30} />
                       <p> {name} </p>
                     </div>
                   ))}
@@ -174,34 +175,35 @@ const Hero = () => {
 
             {/* ----- large scr carousel ---- */}
             <div className="col-span-3">
-              <div className=" lg:max-h-[600px] lg:overflow-hidden ">
+              <div className=" ">
                 <CarouselComponent images={images} />
               </div>
               {/*--------- large scr photo gallery , selelct rooms, attractions -------*/}
               <div className=" my-1 md:grid grid-cols-3 gap-x-1 ">
                 {menuFeatures.length > 0 &&
                   menuFeatures.map(({ bg, titlle, href }, index) => (
-                    <div
-                      key={index}
-                      className=" h-[330px] w-full bg-cover bg-center "
-                      style={{ backgroundImage: `url(${bg})` }}
-                    >
-                      <Link href={href}>
+                    <Link href={href}>
+                      <div
+                        key={index}
+                        className=" h-[280px] w-full bg-cover bg-center group cursor-pointer "
+                        style={{ backgroundImage: `url(${bg})` }}
+                      >
                         <div
                           className=" h-[60px] flex items-center
-                  justify-center opacity-70 text-white textbold
-           capitalize text-2xl text-center my-1 bg-oliver "
+                  justify-center text-white textbold
+           capitalize text-2xl text-center my-1 bg-oliver/70 group-hover:bg-oliver duration-300 "
                         >
                           <p>{titlle} </p>
                         </div>
-                      </Link>
-                    </div>
+                      </div>
+                    </Link>
                   ))}
               </div>
             </div>
           </div>
         ) : (
-          <div className="">
+          // ----------- mobile screen view -------------
+          <div className=" ">
             <h3 className=" py-2 uppercase text-center text-white font-bold bg-oliver ">
               <Link
                 href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes"
@@ -338,8 +340,10 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div className="md:px-28 lg:pl-[260px] bg-white   ">
-        <Address_Contact />
+      <div className=" w-full bg-white  lg:flex lg:items-center lg:justify-center ">
+        <div className="lg:w-[1200px] md:w-[800px] ">
+          <Address_Contact />
+        </div>
       </div>
     </div>
   );

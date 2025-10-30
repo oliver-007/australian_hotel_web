@@ -27,7 +27,7 @@ const Accommodation = () => {
 
         {/* --------- gallery --------- */}
 
-        <div className="w-full flex flex-col justify-center md:flex-row md:flex-wrap md:gap-5   ">
+        <div className="w-full flex flex-col gap-y-5 justify-center md:flex-row md:flex-wrap md:gap-5   ">
           {acd.length > 0 &&
             acd.map(({ bg, title }, index) => (
               <div

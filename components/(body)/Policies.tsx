@@ -121,11 +121,11 @@ const Policies = () => {
 
   return (
     <div className=" bg-black/50 text-white w-full py-6 flex flex-col justify-center items-center ">
-      <div className="bg-white rounded-full md:w-[800px] lg:w-[1200px] w-full ">
+      <div className="bg-white  w-full ">
         <HeadingComponent title=" Our Policies" />
       </div>
-      <div className="md:w-[800px] lg:w-[1200px] md:flex md:justify-center  ">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-4  text-justify-200 px-5 my-5">
+      <div className="lg:w-[1200px] md:px-5 md:flex md:justify-center  ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-4  text-justify-200 px-5 mt-5">
           {policies.length > 0 &&
             policies.map(({ pollicyId, pollicyTitle, pollicyList }) => (
               <div key={pollicyId} className="px-3">

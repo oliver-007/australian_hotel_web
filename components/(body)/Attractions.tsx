@@ -8,15 +8,16 @@ import Link from "next/link";
 const Attractions = () => {
   const atcImgs = ["/images/atc1.jpg", "/images/atc2.jpg", "/images/atc3.jpg"];
   const atcList = [
-    "» Great Northern Trading Post",
-    "» The Sourdough Baker",
-    "» Hunter Valley Zoo",
-    "» Hunter Valley Gardens",
-    "» Wollombi",
-    "» Cessnock Regional Art Gallery",
-    "» Baiame Cave",
-    "» Watagans National Park",
-    "» Werakata National Park",
+    "» Cessnock Showground (400m)",
+    "» East End Oval (1.8km)",
+    "» Mount View Park (1.8km)",
+    "» Baddeley Park (2.2km)",
+    "» Bellbird Heights Park (4km)",
+    "» George Jeffery Park (5km)",
+    "» Sports Ground (9km)",
+    "» Pokolbin Park (9km)",
+    "» Jock Stewart Park (12km)",
+    "» Hunter Valley Gardens (12km)",
   ];
 
   return (
