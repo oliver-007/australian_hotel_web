@@ -18,19 +18,14 @@ const Footer = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Family Room Standard", href: "/family_room_standard" },
     { name: "Photo Gallery", href: "/photo_gallery" },
-    { name: "Accommodation", href: "/accommodation" },
-    { name: "Whats On", href: "/whats_on" },
-    { name: "Twin Room Standard", href: "/twin_room_standard" },
-    { name: "Contact Us", href: "/contact_us" },
-    { name: "King Room Standard", href: "/king_room_standard" },
+    { name: "Accommodation", href: "/#accommodation" },
   ];
 
   return (
     <div className="bg-oliver w-full ">
-      <div className="lg:flex lg:justify-center ">
-        <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 md:flex-row  md:px-28  md:py-12  ">
+      <div className="lg:flex lg:justify-around ">
+        <div className=" text-white flex flex-col gap-y-4 items-center justify-center py-2 lg:py-5 md:flex-row  md:py-12  ">
           {/* ------- logo,  btn ------- */}
           <div className=" md:w-1/2  py-3  flex flex-col gap-y-5 items-center justify-center ">
             <Link href="/">
@@ -52,29 +47,29 @@ const Footer = () => {
             </Link>
           </div>
           {/* ---- address & contact info-----  */}
-          <div className="md:w-1/2 px-5 md:px-0">
-            <h1 className="capitalize text-center  text-2xl font-bold">
+          <div className="md:w-1/2 px-5 md:px-0 text-center ">
+            <h1 className="capitalize text-center text-2xl font-bold">
               {" "}
               the aussie rest{" "}
             </h1>
             <div className="">
               {/* address */}
-              <div className="flex  justify-center gap-x-2 text-center  ">
+              <div className="flex  justify-center gap-x-2   ">
                 <MapPin />
                 <p>43 Shedden St Cessnock, NSW 2325, Australia</p>
               </div>
               {/* contact info */}
-              <div className=" flex flex-col items-center justify-center ">
+              <div className=" flex flex-col items-center justify-center my-5 space-y-2 ">
                 <Link
                   href="tel:+0249914197"
-                  className="flex items-center justify-center my-3 gap-x-2 text-xs lg:text-base"
+                  className="flex items-center justify-center gap-x-2 text-xs lg:text-base"
                 >
                   <Phone size={width > 993 ? 20 : 15} />
                   0249914197
                 </Link>
                 <Link
                   href="mailto:enquiries@aussierest.com.au"
-                  className="flex items-center justify-center my-3 gap-x-2 text-xs lg:text-base
+                  className="flex items-center justify-center gap-x-2 text-xs lg:text-base
                 "
                 >
                   <Mail size={width > 993 ? 20 : 15} />
@@ -86,7 +81,7 @@ const Footer = () => {
         </div>
         <hr />
         {/* -------all menu  ------ */}
-        <div className="grid grid-cols-2 gap-y-3 place-items-center-safe py-3 md:py-12 ">
+        <div className="grid grid-cols-2 lg:grid-cols-1 gap-y-3 place-items-center-safe py-3 md:py-12 ">
           {links.length > 0 &&
             links.map(({ name, href }, index) => {
               const isActive = mounted && pathname === href;

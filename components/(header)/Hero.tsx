@@ -182,9 +182,8 @@ const Hero = () => {
               <div className=" my-1 md:grid grid-cols-3 gap-x-1 ">
                 {menuFeatures.length > 0 &&
                   menuFeatures.map(({ bg, titlle, href }, index) => (
-                    <Link href={href}>
+                    <Link href={href} key={index}>
                       <div
-                        key={index}
                         className=" h-[280px] w-full bg-cover bg-center group cursor-pointer "
                         style={{ backgroundImage: `url(${bg})` }}
                       >

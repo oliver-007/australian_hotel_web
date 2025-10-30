@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Attractions = () => {
-  const atcImgs = ["/images/atc1.jpg", "/images/atc2.jpg", "/images/atc3.jpg"];
+  const atcImgs = [
+    "/images/hunter_valley_garden.webp",
+    "/images/george_jeffery_park.jpg",
+    "/images/mountain_view_park.jpg",
+    "/images/cessnock_showground.jpeg",
+  ];
   const atcList = [
     "» Cessnock Showground (400m)",
     "» East End Oval (1.8km)",
@@ -21,35 +26,30 @@ const Attractions = () => {
   ];
 
   return (
-    <div id="attractions" className="w-full  px-4 md:px-28 bg-[#F8F9FA] py-8 ">
-      <HeadingComponent title="attractions" />
-      <div className="lg:flex lg:justify-around lg:items-center w-full">
-        <div className=" lg:h-[500px] lg:overflow-hidden lg:w-[700px] ">
-          <CarouselComponent images={atcImgs} />
+    <div
+      id="attractions"
+      className="w-full md:flex justify-center items-center   px-4  bg-[#F8F9FA] "
+    >
+      <div className=" lg:w-[1200px] md:w-[800px] ">
+        <div className="py-5">
+          <HeadingComponent title="attractions" />
         </div>
-        <div>
-          <h2 className="uppercase text-2xl text-oliver font-semibold pt-2">
-            lsit of attractions
-          </h2>
-          <div className="pl-5 py-5 space-y-2">
-            {atcList.length > 0 &&
-              atcList.map((atc, index) => (
-                <ul key={index}>
-                  <li> {atc} </li>
-                </ul>
-              ))}
+        <div className="lg:flex lg:justify-around lg:items-center w-full">
+          <div className="lg:w-[600px]  ">
+            <CarouselComponent images={atcImgs} />
           </div>
-          <div className="text-center lg:text-start">
-            <Link href="/attractions">
-              <Button
-                variant="default"
-                className="hover:bg-amber-300 hover:text-zinc-700 m  "
-                size="sm"
-              >
-                {" "}
-                Read more...{" "}
-              </Button>
-            </Link>
+          <div className="flex items-center flex-col">
+            <h2 className="uppercase text-2xl text-oliver font-semibold pt-2">
+              lsit of attractions
+            </h2>
+            <div className="pl-5 py-5 space-y-2">
+              {atcList.length > 0 &&
+                atcList.map((atc, index) => (
+                  <ul key={index}>
+                    <li> {atc} </li>
+                  </ul>
+                ))}
+            </div>
           </div>
         </div>
       </div>

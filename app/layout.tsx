@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased  min-h-screen relative flex justify-center `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  min-h-screen relative  `}
       >
-        <div className="fixed inset-0 -z-10 bg-[url('/images/bg1.jpg')] bg-cover bg-center bg-no-repeat">
-          <div className="absolute inset-0 bg-black/40" /> {/* overlay */}
+        <div className="fixed inset-0 -z-10 bg-[url('/images/bg1.jpg')] bg-cover bg-center bg-no-repeat ">
+          <div className="absolute inset-0 bg-black/40  " /> {/* overlay */}
         </div>
         <div className=" ">
           <Hero />

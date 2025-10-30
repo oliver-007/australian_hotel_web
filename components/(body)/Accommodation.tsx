@@ -21,7 +21,7 @@ const Accommodation = () => {
     >
       <div className=" lg:w-[1200px] md:w-[800px]">
         {/* ---------- ---- heading------------- */}
-        <div className="py-5">
+        <div className="py-5 ">
           <HeadingComponent title="accommodation" />
         </div>
 

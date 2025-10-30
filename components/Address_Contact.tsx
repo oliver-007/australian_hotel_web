@@ -7,7 +7,7 @@ const Address_Contact = () => {
 
   return (
     <>
-      <div className="px-5 text-zinc-800 md:flex md:items-center md:justify-around lg:justify-center py-2 lg:py-5 ">
+      <div className=" text-zinc-800 md:flex md:items-center md:justify-around lg:justify-center py-2 lg:py-5 ">
         {/* address */}
         <div className="flex justify-center md:w-1/2  ">
           <MapPin />
