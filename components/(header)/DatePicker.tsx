@@ -27,7 +27,13 @@ function isValidDate(date: Date | undefined) {
   return !isNaN(date.getTime());
 }
 
-const DatePicker = ({ status }: { status: string }) => {
+const DatePicker = ({
+  status,
+  dateFor,
+}: {
+  status: string;
+  dateFor: string;
+}) => {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(
     new Date("2025-06-01")
@@ -36,12 +42,12 @@ const DatePicker = ({ status }: { status: string }) => {
   const [value, setValue] = React.useState(formatDate(date));
   return (
     <div className="flex flex-col lg:flex-row gap-3 max-w-[250px] ">
-      <Label htmlFor="date" className="px-1 capitalize text-white">
+      <Label htmlFor={dateFor} className="px-1 capitalize text-white">
         {status}
       </Label>
       <div className="relative flex gap-2">
         <Input
-          id="date"
+          id={dateFor}
           value={value}
           placeholder="June 01, 2025"
           className="bg-background pr-10"

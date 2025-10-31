@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Button } from "../ui/button";
-import Address_Contact from "../Address_Contact";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -17,9 +16,10 @@ const Footer = () => {
   useEffect(() => setMounted(true), []);
 
   const links = [
-    { name: "Home", href: "/" },
-    { name: "Photo Gallery", href: "/photo_gallery" },
-    { name: "Accommodation", href: "/#accommodation" },
+    { name: "Home", href: "#hero" },
+    { name: "Photo Gallery", href: "#photo_gallery" },
+    { name: "Accommodation", href: "#accommodation" },
+    { name: "Attractions", href: "#attractions" },
   ];
 
   return (
@@ -89,7 +89,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={href}
-                  className={`w-fit text-white text-xs hover:bg-black/50 px-2 py-1 ${
+                  className={`lg:w-full flex items-center justify-center text-white text-xs hover:bg-black/50 px-2 py-1 ${
                     isActive
                       ? " w-fit border border-white shadow-sm shadow-yellow-200  px-2 py-1  "
                       : ""

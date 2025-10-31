@@ -1,13 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+
 import {
   AirVent,
   CigaretteOff,
@@ -33,12 +27,14 @@ import useWindowSize from "@/app/hooks/useWindowSize";
 const Hero = () => {
   const pathname = usePathname();
   const { width } = useWindowSize();
-  console.log(width);
+
   const images = [
-    "/images/caro1.jpg",
-    "/images/caro2.jpg",
-    "/images/caro3.jpg",
-    "/images/caro4.jpg",
+    "/images/p1.jpg",
+    "/images/p2.jpg",
+    "/images/p3.jpg",
+    "/images/p4.jpg",
+    "/images/p5.jpg",
+    "/images/p6.jpg",
   ];
 
   const features = [
@@ -52,30 +48,34 @@ const Hero = () => {
 
   const menuFeatures = [
     {
-      bg: "/images/caro1.jpg",
+      bg: "/images/p1.jpg",
       titlle: "selecet rooms",
       href: "#accommodation",
     },
     {
-      bg: "/images/caro2.jpg",
+      bg: "/images/p5.jpg",
       titlle: "photo gallery",
-      href: "/photo_gallery",
+      href: "#photo_gallery",
     },
-    { bg: "/images/caro4.jpg", titlle: "attractions", href: "#attractions" },
+    {
+      bg: "/images/hunter_valley_garden.webp",
+      titlle: "attractions",
+      href: "#attractions",
+    },
   ];
 
-  const [open, setOpen] = useState(false);
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   // for fixing hydration error , using directly usePathname() was the reason
   useEffect(() => setMounted(true), []);
 
   const links = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "#hero" },
     { name: "Accommodation", href: "#accommodation" },
   ];
 
   return (
-    <div className=" lg:flex flex-col items-center justify-center ">
+    <div id="hero" className=" lg:flex flex-col items-center justify-center ">
       <div className=" lg:max-w-[1000px] md:w-full  ">
         {/* ------------ large screen view ------------ */}
         {width >= 1024 ? (
@@ -86,14 +86,17 @@ const Hero = () => {
                 {/* -------- book now btn --------- */}
 
                 <h3 className=" tracking-[0.7em]  uppercase text-center text-white font-bold bg-oliver py-2 flex items-center justify-center  ">
-                  <Link href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes">
+                  <Link
+                    href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes"
+                    target="_blank"
+                  >
                     <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer  ">
                       book now
                     </Button>
                   </Link>
                 </h3>
                 <div className="py-10 flex items-center justify-center">
-                  <Link href="/">
+                  <Link href="#hero">
                     <Image
                       src="/images/aus-logo.png"
                       alt="logo"
@@ -203,7 +206,7 @@ const Hero = () => {
         ) : (
           // ----------- mobile screen view -------------
           <div className=" ">
-            <h3 className=" py-2 uppercase text-center text-white font-bold bg-oliver ">
+            <h3 className=" tracking-[0.7em] text-xl py-2 uppercase text-center text-white font-bold bg-oliver ">
               <Link
                 href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes"
                 target="_blank"
@@ -213,8 +216,8 @@ const Hero = () => {
                 </Button>
               </Link>
             </h3>
-            <div className=" py-2 grid place-items-center bg-zinc-600 ">
-              <Link href="/">
+            <div className=" py-2 grid place-items-center bg-black/60 ">
+              <Link href="#hero">
                 <Image
                   src="/images/aus-logo.png"
                   alt="logo"
@@ -227,45 +230,35 @@ const Hero = () => {
         )}
 
         {/* ------------- menu ---------------- */}
-        <div className="flex items-center justify-between bg-oliver text-white ">
+        <div className="flex items-center justify-between bg-oliver text-white  top-0 sticky z-50 ">
           {/* Burger menu (mobile) */}
           <div className="lg:hidden">
-            <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  {open ? (
-                    <X className="h-6 w-6" />
-                  ) : (
-                    <Menu className="h-6 w-6" />
-                  )}
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="top" className="w-full bg-oliver ">
-                <SheetHeader>
-                  <SheetTitle className="text-white">Menu</SheetTitle>
-                </SheetHeader>
-                <nav className="mt-6 flex flex-col gap-4 ">
-                  {links.map(({ name, href }, index) => {
-                    const isActive = mounted && pathname === href;
-                    return (
-                      <Link
-                        scroll={true}
-                        key={index}
-                        href={href}
-                        className={` text-white text-lg transition-colors w-full text-center ${
-                          isActive
-                            ? " bg-zinc-400 font-semibold "
-                            : " hover:bg-yellow-500 hover:text-white"
-                        }`}
-                        onClick={() => setOpen(false)}
-                      >
-                        {name}
-                      </Link>
-                    );
-                  })}
-                </nav>
-              </SheetContent>
-            </Sheet>
+            {/* custom burger menu btn */}
+            <div
+              onClick={() => setBurgerMenuOpen((prevState) => !prevState)}
+              className="p-2"
+            >
+              {burgerMenuOpen ? <X /> : <Menu />}
+            </div>
+            {/* ----- animated menu------ */}
+
+            <div
+              className={`bg-oliver absolute origin-top w-full z-50  duration-500 transition-all ease-in-out overflow-hidden ${
+                burgerMenuOpen ? "scale-y-100" : "scale-y-0"
+              }  `}
+            >
+              {links.map(({ name, href }, index) => (
+                <Link
+                  key={index}
+                  href={href}
+                  className="text-white text-lg w-full flex items-center justify-center py-2 transition duration-500 "
+                  onClick={() => setBurgerMenuOpen((prevState) => !prevState)}
+                >
+                  {" "}
+                  {name}{" "}
+                </Link>
+              ))}
+            </div>
           </div>
           {/* ___--------- facebook icon -------- */}
           <Link
@@ -301,12 +294,11 @@ const Hero = () => {
         <div className=" my-1 md:grid grid-cols-3 gap-x-1 lg:hidden ">
           {menuFeatures.length > 0 &&
             menuFeatures.map(({ bg, titlle, href }, index) => (
-              <div
-                key={index}
-                className=" h-[200px] w-full bg-cover bg-center "
-                style={{ backgroundImage: `url(${bg})` }}
-              >
-                <Link href={href}>
+              <Link href={href} key={index}>
+                <div
+                  className="h-[200px] w-full bg-cover bg-center "
+                  style={{ backgroundImage: `url(${bg})` }}
+                >
                   <div
                     className=" h-[60px] flex items-center
                   justify-center opacity-70 text-white textbold
@@ -314,8 +306,8 @@ const Hero = () => {
                   >
                     <p>{titlle} </p>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
         </div>
       </div>
@@ -323,8 +315,8 @@ const Hero = () => {
       {/* check-in, check-out, check availability */}
       <div className="w-full py-4 bg-oliver lg:flex items-center justify-center gap-x-10 ">
         <div className="flex flex-col gap-y-4  md:flex-row md:gap-x-10 lg:gap-x-5 items-center justify-center ">
-          <DatePicker status="check-in" />
-          <DatePicker status="check-out" />
+          <DatePicker status="check-in" dateFor="check_in_date" />
+          <DatePicker status="check-out" dateFor="check_our_date" />
         </div>
 
         <p className="text-white text-center font-bold py-5">1 Night Stay</p>
