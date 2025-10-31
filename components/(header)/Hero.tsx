@@ -118,8 +118,8 @@ const Hero = () => {
                         href={href}
                         className={`flex flex-col items-center justify-center py-1  ${
                           isActive
-                            ? "bg-oliver  "
-                            : "hover:bg-yellow-500 hover:text-white"
+                            ? "bg-yellow-500  "
+                            : "hover:bg-oliver hover:text-white"
                         }  `}
                       >
                         {name}
