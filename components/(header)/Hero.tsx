@@ -72,6 +72,7 @@ const Hero = () => {
   const links = [
     { name: "Home", href: "#hero" },
     { name: "Accommodation", href: "#accommodation" },
+    { name: "Policies", href: "#policies" },
   ];
 
   return (
@@ -95,7 +96,7 @@ const Hero = () => {
                     </Button>
                   </Link>
                 </h3>
-                <div className="py-10 flex items-center justify-center">
+                <div className="py-5 flex items-center justify-center">
                   <Link href="#hero">
                     <Image
                       src="/images/aus-logo.png"
@@ -300,9 +301,9 @@ const Hero = () => {
                   style={{ backgroundImage: `url(${bg})` }}
                 >
                   <div
-                    className=" h-[60px] flex items-center
-                  justify-center opacity-70 text-white textbold
-           capitalize text-2xl text-center my-1 bg-oliver "
+                    className=" py-1 flex items-center
+                  justify-center opacity-70 text-white font-bold tracking-widest
+           capitalize text-center my-1 bg-oliver "
                   >
                     <p>{titlle} </p>
                   </div>

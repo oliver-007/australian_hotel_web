@@ -20,6 +20,7 @@ const Footer = () => {
     { name: "Photo Gallery", href: "#photo_gallery" },
     { name: "Accommodation", href: "#accommodation" },
     { name: "Attractions", href: "#attractions" },
+    { name: "Policies", href: "#policies" },
   ];
 
   return (

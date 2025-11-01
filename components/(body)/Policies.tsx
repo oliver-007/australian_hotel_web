@@ -120,7 +120,10 @@ const Policies = () => {
   ];
 
   return (
-    <div className=" bg-black/50 text-white w-full py-6  flex flex-col justify-center items-center ">
+    <div
+      id="policies"
+      className=" bg-black/50 text-white w-full py-6  flex flex-col justify-center items-center "
+    >
       <div className="bg-white  w-full px-4 ">
         <HeadingComponent title=" Our Policies" />
       </div>
