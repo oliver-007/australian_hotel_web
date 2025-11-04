@@ -77,7 +77,7 @@ const Hero = () => {
 
   return (
     <div id="hero" className=" lg:flex flex-col items-center justify-center ">
-      <div className=" lg:max-w-[1000px] md:w-full  ">
+      <div className=" lg:max-w-[1300px] md:w-full  ">
         {/* ------------ large screen view ------------ */}
         {width >= 1024 ? (
           <div className="grid grid-cols-5 bg-black/50 text-white ">
@@ -107,8 +107,8 @@ const Hero = () => {
                   </Link>
                 </div>
               </div>
-              {/* menu */}
-              <div className="space-y-1 px-4">
+              {/*-------- menu ----------*/}
+              <div className="space-y-2 px-4 py-4">
                 {links.length > 0 &&
                   links.map(({ name, href }, index) => {
                     const isActive = mounted && pathname === href;
@@ -128,28 +128,28 @@ const Hero = () => {
                     );
                   })}
               </div>
-              <div className="my-1">
-                {/* contact info */}
-                <div className="  flex flex-col items-center justify-between h-[55px] ">
-                  <Link
-                    href="tel:+0249914197"
-                    className="flex items-center justify-center gap-x-2 text-base "
-                  >
-                    <Phone size={width >= 1024 ? 20 : 15} />
-                    02 4991 4197
-                  </Link>
-                  <Link
-                    href="mailto:enquiries@aussierest.com.au"
-                    className="flex lg:items-center lg:justify-center gap-x-2 text-xs lg:text-base
+
+              {/* ------- contact info ------------ */}
+              <div className="  flex flex-col items-center justify-between space-y-4 py-4">
+                <Link
+                  href="tel:+0249914197"
+                  className="flex items-center justify-center gap-x-2 text-base "
+                >
+                  <Phone size={width >= 1024 ? 20 : 15} />
+                  02 4991 4197
+                </Link>
+                <Link
+                  href="mailto:enquiries@aussierest.com.au"
+                  className="flex lg:items-center lg:justify-center gap-x-2 text-xs lg:text-base
              "
-                  >
-                    <Mail size={width >= 1024 ? 20 : 15} />
-                    enquiries@aussierest.com.au
-                  </Link>
-                </div>
+                >
+                  <Mail size={width >= 1024 ? 20 : 15} />
+                  enquiries@aussierest.com.au
+                </Link>
               </div>
-              <div className="flex items-center justify-center">
-                {/* ___--------- facebook icon -------- */}
+
+              {/* ___--------- facebook icon -------- */}
+              <div className="flex items-center justify-center py-5  ">
                 <Link
                   href="https://www.facebook.com/Aussierestmotelcessnock"
                   target="_blank"
@@ -160,13 +160,13 @@ const Hero = () => {
                 </Link>
               </div>
 
-              {/* icons */}
-              <div className="grid grid-cols-2 gap-0 place-items-center-safe mt-2 ">
+              {/* - ----------icons ------------ */}
+              <div className="grid grid-cols-2 gap-0 place-items-center-safe py-4  ">
                 {features.length > 0 &&
                   features.map(({ icon: Icon, name }, index) => (
                     <div
                       key={index}
-                      className={`w-50 h-20  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
+                      className={`w-[260px] h-[92px]  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
                         index % 2 === 1 ? "border-r-0 " : ""
                       } ${index >= features.length - 2 ? "border-b-0" : ""}`}
                     >
