@@ -17,15 +17,16 @@ const CarouselComponent = ({ images }: { images: string[] }) => {
             delay: 3000,
           }),
         ]}
+        className="h-full "
       >
-        <CarouselContent className="">
+        <CarouselContent className=" lg:h-[600px] h-[200px]   ">
           {images.length > 0 &&
             images.map((img, index) => {
               console.log(img);
               return (
                 <CarouselItem key={index}>
                   {" "}
-                  <div className="relative w-full h-[200px] lg:h-[570px] md:h-[400px]  ">
+                  <div className="relative w-full h-full ">
                     <Image
                       src={img}
                       alt={`slide ${index + 1}`}

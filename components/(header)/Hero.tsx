@@ -77,130 +77,154 @@ const Hero = () => {
 
   return (
     <div id="hero" className=" lg:flex flex-col items-center justify-center ">
-      <div className=" lg:max-w-[1300px] md:w-full  ">
+      <div className="  md:w-full  ">
         {/* ------------ large screen view ------------ */}
         {width >= 1024 ? (
-          <div className="grid grid-cols-5 bg-black/50 text-white ">
-            {/* -----logo , menu, icons---- */}
-            <div className="col-span-2">
-              <div className="">
-                {/* -------- book now btn --------- */}
+          <div className="grid grid-rows-10 min-h-screen">
+            <div className=" lg:max-w-[1300px] mx-auto grid grid-cols-5 bg-black/50 text-white row-span-9 ">
+              {/* -----logo , menu, icons---- */}
+              <div className="col-span-2">
+                <div className="">
+                  {/* -------- book now btn --------- */}
 
-                <h3 className=" tracking-[0.7em]  uppercase text-center text-white font-bold bg-oliver py-2 flex items-center justify-center  ">
+                  <h3 className=" tracking-[0.7em]  uppercase text-center text-white font-bold bg-oliver py-2 flex items-center justify-center  ">
+                    <Link
+                      href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes"
+                      target="_blank"
+                    >
+                      <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer  ">
+                        book now
+                      </Button>
+                    </Link>
+                  </h3>
+                  <div className="py-5 flex items-center justify-center">
+                    <Link href="#hero">
+                      <Image
+                        src="/images/aus-logo.png"
+                        alt="logo"
+                        width={300}
+                        height={100}
+                      />
+                    </Link>
+                  </div>
+                </div>
+                {/*-------- menu ----------*/}
+                <div className="space-y-2 px-4 py-4">
+                  {links.length > 0 &&
+                    links.map(({ name, href }, index) => {
+                      const isActive = mounted && pathname === href;
+                      return (
+                        <Link
+                          scroll={true}
+                          key={index}
+                          href={href}
+                          className={`flex flex-col items-center justify-center py-1  ${
+                            isActive
+                              ? "bg-yellow-500  "
+                              : "hover:bg-oliver hover:text-white"
+                          }  `}
+                        >
+                          {name}
+                        </Link>
+                      );
+                    })}
+                </div>
+
+                {/* ------- contact info ------------ */}
+                <div className="  flex flex-col items-center justify-between space-y-4 py-4">
                   <Link
-                    href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=yes"
-                    target="_blank"
+                    href="tel:+0249914197"
+                    className="flex items-center justify-center gap-x-2 text-base "
                   >
-                    <Button className=" border border-yellow-300 bg-transparent hover:bg-black/50 capitalize animate-pulse cursor-pointer  ">
-                      book now
-                    </Button>
+                    <Phone size={width >= 1024 ? 20 : 15} />
+                    02 4991 4197
                   </Link>
-                </h3>
-                <div className="py-5 flex items-center justify-center">
-                  <Link href="#hero">
-                    <Image
-                      src="/images/aus-logo.png"
-                      alt="logo"
-                      width={300}
-                      height={100}
-                    />
+                  <Link
+                    href="mailto:enquiries@aussierest.com.au"
+                    className="flex lg:items-center lg:justify-center gap-x-2 text-xs lg:text-base
+             "
+                  >
+                    <Mail size={width >= 1024 ? 20 : 15} />
+                    enquiries@aussierest.com.au
                   </Link>
                 </div>
-              </div>
-              {/*-------- menu ----------*/}
-              <div className="space-y-2 px-4 py-4">
-                {links.length > 0 &&
-                  links.map(({ name, href }, index) => {
-                    const isActive = mounted && pathname === href;
-                    return (
-                      <Link
-                        scroll={true}
-                        key={index}
-                        href={href}
-                        className={`flex flex-col items-center justify-center py-1  ${
-                          isActive
-                            ? "bg-yellow-500  "
-                            : "hover:bg-oliver hover:text-white"
-                        }  `}
-                      >
-                        {name}
-                      </Link>
-                    );
-                  })}
-              </div>
 
-              {/* ------- contact info ------------ */}
-              <div className="  flex flex-col items-center justify-between space-y-4 py-4">
-                <Link
-                  href="tel:+0249914197"
-                  className="flex items-center justify-center gap-x-2 text-base "
-                >
-                  <Phone size={width >= 1024 ? 20 : 15} />
-                  02 4991 4197
-                </Link>
-                <Link
-                  href="mailto:enquiries@aussierest.com.au"
-                  className="flex lg:items-center lg:justify-center gap-x-2 text-xs lg:text-base
-             "
-                >
-                  <Mail size={width >= 1024 ? 20 : 15} />
-                  enquiries@aussierest.com.au
-                </Link>
-              </div>
-
-              {/* ___--------- facebook icon -------- */}
-              <div className="flex items-center justify-center py-5  ">
-                <Link
-                  href="https://www.facebook.com/Aussierestmotelcessnock"
-                  target="_blank"
-                >
-                  <div className=" p-3 rounded-full bg-black ">
-                    <Facebook size={20} />
-                  </div>
-                </Link>
-              </div>
-
-              {/* - ----------icons ------------ */}
-              <div className="grid grid-cols-2 gap-0 place-items-center-safe py-4  ">
-                {features.length > 0 &&
-                  features.map(({ icon: Icon, name }, index) => (
-                    <div
-                      key={index}
-                      className={`w-[260px] h-[92px]  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
-                        index % 2 === 1 ? "border-r-0 " : ""
-                      } ${index >= features.length - 2 ? "border-b-0" : ""}`}
-                    >
-                      <Icon size={30} />
-                      <p> {name} </p>
+                {/* ___--------- facebook icon -------- */}
+                <div className="flex items-center justify-center py-5  ">
+                  <Link
+                    href="https://www.facebook.com/Aussierestmotelcessnock"
+                    target="_blank"
+                  >
+                    <div className=" p-3 rounded-full bg-black ">
+                      <Facebook size={20} />
                     </div>
-                  ))}
+                  </Link>
+                </div>
+
+                {/* - ----------icons ------------ */}
+                <div className="grid grid-cols-2 gap-0 place-items-center-safe py-4  ">
+                  {features.length > 0 &&
+                    features.map(({ icon: Icon, name }, index) => (
+                      <div
+                        key={index}
+                        className={`w-[260px] h-[92px]  flex flex-col items-center justify-center border-r border-b border-gray-300 ${
+                          index % 2 === 1 ? "border-r-0 " : ""
+                        } ${index >= features.length - 2 ? "border-b-0" : ""}`}
+                      >
+                        <Icon size={30} />
+                        <p> {name} </p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              {/* ----- large scr carousel ---- */}
+              <div className="col-span-3 h-full flex flex-col ">
+                <div className=" flex-2   ">
+                  <CarouselComponent images={images} />
+                </div>
+                {/*--------- large scr photo gallery , selelct rooms, attractions -------*/}
+                <div className="flex-1 md:grid grid-cols-3 gap-x-1 ">
+                  {menuFeatures.length > 0 &&
+                    menuFeatures.map(({ bg, titlle, href }, index) => (
+                      <Link href={href} key={index}>
+                        <div
+                          className=" h-full w-full bg-cover bg-center group cursor-pointer "
+                          style={{ backgroundImage: `url(${bg})` }}
+                        >
+                          <div
+                            className=" h-[60px] flex items-center
+                  justify-center text-white textbold
+           capitalize text-2xl text-center my-1 bg-oliver/70 group-hover:bg-oliver duration-300 "
+                          >
+                            <p>{titlle} </p>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                </div>
               </div>
             </div>
 
-            {/* ----- large scr carousel ---- */}
-            <div className="col-span-3">
-              <div className=" ">
-                <CarouselComponent images={images} />
+            {/* check-in, check-out, check availability */}
+            <div className="w-full py-4 bg-oliver lg:flex items-center justify-center gap-x-10 ">
+              <div className="flex flex-col gap-y-4  md:flex-row md:gap-x-10 lg:gap-x-5 items-center justify-center ">
+                <DatePicker status="check-in" dateFor="check_in_date" />
+                <DatePicker status="check-out" dateFor="check_our_date" />
               </div>
-              {/*--------- large scr photo gallery , selelct rooms, attractions -------*/}
-              <div className=" my-1 md:grid grid-cols-3 gap-x-1 ">
-                {menuFeatures.length > 0 &&
-                  menuFeatures.map(({ bg, titlle, href }, index) => (
-                    <Link href={href} key={index}>
-                      <div
-                        className=" h-[280px] w-full bg-cover bg-center group cursor-pointer "
-                        style={{ backgroundImage: `url(${bg})` }}
-                      >
-                        <div
-                          className=" h-[60px] flex items-center
-                  justify-center text-white textbold
-           capitalize text-2xl text-center my-1 bg-oliver/70 group-hover:bg-oliver duration-300 "
-                        >
-                          <p>{titlle} </p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
+
+              <p className="text-white text-center font-bold py-5">
+                1 Night Stay
+              </p>
+              <div className="text-center">
+                <Link
+                  href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=no"
+                  target="_blank"
+                >
+                  <Button className="capitalize cursor-pointer">
+                    check availability
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -227,111 +251,115 @@ const Hero = () => {
                 />
               </Link>
             </div>
-          </div>
-        )}
 
-        {/* ------------- menu ---------------- */}
-        <div className="flex items-center justify-between bg-oliver text-white  top-0 sticky z-50 ">
-          {/* Burger menu (mobile) */}
-          <div className="lg:hidden">
-            {/* custom burger menu btn */}
-            <div
-              onClick={() => setBurgerMenuOpen((prevState) => !prevState)}
-              className="p-2"
-            >
-              {burgerMenuOpen ? <X /> : <Menu />}
-            </div>
-            {/* ----- animated menu------ */}
-
-            <div
-              className={`bg-oliver absolute origin-top w-full z-50  duration-500 transition-all ease-in-out overflow-hidden ${
-                burgerMenuOpen ? "scale-y-100" : "scale-y-0"
-              }  `}
-            >
-              {links.map(({ name, href }, index) => (
-                <Link
-                  key={index}
-                  href={href}
-                  className="text-white text-lg w-full flex items-center justify-center py-2 transition duration-500 "
-                  onClick={() => setBurgerMenuOpen((prevState) => !prevState)}
-                >
-                  {" "}
-                  {name}{" "}
-                </Link>
-              ))}
-            </div>
-          </div>
-          {/* ___--------- facebook icon -------- */}
-          <Link
-            href="https://www.facebook.com/Aussierestmotelcessnock"
-            target="_blank"
-          >
-            <div className="mr-3 lg:hidden">
-              <Facebook size={20} />
-            </div>
-          </Link>
-        </div>
-
-        {/*-------------- carousel--------- */}
-        <div className=" lg:hidden">
-          <CarouselComponent images={images} />
-        </div>
-
-        {/*-------- icons----------- */}
-        <div className="grid grid-cols-2 gap-1 py-2 bg-black/50 md:flex md:justify-around lg:hidden ">
-          {features.length > 0 &&
-            features.map(({ icon: Icon, name }, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center border border-white text-white py-2 md:border-0 "
-              >
-                <Icon size={30} />
-                <span className="text-xs"> {name} </span>
-              </div>
-            ))}
-        </div>
-
-        {/* photo gallery , selelct rooms, attractions */}
-        <div className=" my-1 md:grid grid-cols-3 gap-x-1 lg:hidden ">
-          {menuFeatures.length > 0 &&
-            menuFeatures.map(({ bg, titlle, href }, index) => (
-              <Link href={href} key={index}>
+            {/* ------------- menu ---------------- */}
+            <div className="flex items-center justify-between bg-oliver text-white  top-0 sticky z-50 ">
+              {/* Burger menu (mobile) */}
+              <div className="lg:hidden">
+                {/* custom burger menu btn */}
                 <div
-                  className="h-[200px] w-full bg-cover bg-center "
-                  style={{ backgroundImage: `url(${bg})` }}
+                  onClick={() => setBurgerMenuOpen((prevState) => !prevState)}
+                  className="p-2"
                 >
-                  <div
-                    className=" py-1 flex items-center
-                  justify-center opacity-70 text-white font-bold tracking-widest
-           capitalize text-center my-1 bg-oliver "
-                  >
-                    <p>{titlle} </p>
-                  </div>
+                  {burgerMenuOpen ? <X /> : <Menu />}
+                </div>
+                {/* ----- animated menu------ */}
+
+                <div
+                  className={`bg-oliver absolute origin-top w-full z-50  duration-500 transition-all ease-in-out overflow-hidden ${
+                    burgerMenuOpen ? "scale-y-100" : "scale-y-0"
+                  }  `}
+                >
+                  {links.map(({ name, href }, index) => (
+                    <Link
+                      key={index}
+                      href={href}
+                      className="text-white text-lg w-full flex items-center justify-center py-2 transition duration-500 "
+                      onClick={() =>
+                        setBurgerMenuOpen((prevState) => !prevState)
+                      }
+                    >
+                      {" "}
+                      {name}{" "}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              {/* ___--------- facebook icon -------- */}
+              <Link
+                href="https://www.facebook.com/Aussierestmotelcessnock"
+                target="_blank"
+              >
+                <div className="mr-3 lg:hidden">
+                  <Facebook size={20} />
                 </div>
               </Link>
-            ))}
-        </div>
+            </div>
+
+            {/*--------------mobile screen carousel--------- */}
+            <div className=" lg:hidden">
+              <CarouselComponent images={images} />
+            </div>
+
+            {/*-------- icons----------- */}
+            <div className="grid grid-cols-2 gap-1 py-2 bg-black/50 md:flex md:justify-around lg:hidden ">
+              {features.length > 0 &&
+                features.map(({ icon: Icon, name }, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center border border-white text-white py-2 md:border-0 "
+                  >
+                    <Icon size={30} />
+                    <span className="text-xs"> {name} </span>
+                  </div>
+                ))}
+            </div>
+
+            {/* photo gallery , selelct rooms, attractions */}
+            <div className=" my-1 md:grid grid-cols-3 gap-x-1 lg:hidden ">
+              {menuFeatures.length > 0 &&
+                menuFeatures.map(({ bg, titlle, href }, index) => (
+                  <Link href={href} key={index}>
+                    <div
+                      className="h-[200px] w-full bg-cover bg-center "
+                      style={{ backgroundImage: `url(${bg})` }}
+                    >
+                      <div
+                        className=" py-1 flex items-center
+                  justify-center opacity-70 text-white font-bold tracking-widest
+           capitalize text-center my-1 bg-oliver "
+                      >
+                        <p>{titlle} </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+            {/* check-in, check-out, check availability */}
+            <div className="w-full py-4 bg-oliver lg:flex items-center justify-center gap-x-10 ">
+              <div className="flex flex-col gap-y-4  md:flex-row md:gap-x-10 lg:gap-x-5 items-center justify-center ">
+                <DatePicker status="check-in" dateFor="check_in_date" />
+                <DatePicker status="check-out" dateFor="check_our_date" />
+              </div>
+
+              <p className="text-white text-center font-bold py-5">
+                1 Night Stay
+              </p>
+              <div className="text-center">
+                <Link
+                  href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=no"
+                  target="_blank"
+                >
+                  <Button className="capitalize cursor-pointer">
+                    check availability
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* check-in, check-out, check availability */}
-      <div className="w-full py-4 bg-oliver lg:flex items-center justify-center gap-x-10 ">
-        <div className="flex flex-col gap-y-4  md:flex-row md:gap-x-10 lg:gap-x-5 items-center justify-center ">
-          <DatePicker status="check-in" dateFor="check_in_date" />
-          <DatePicker status="check-out" dateFor="check_our_date" />
-        </div>
-
-        <p className="text-white text-center font-bold py-5">1 Night Stay</p>
-        <div className="text-center">
-          <Link
-            href="https://book-directonline.com/properties/AussieRestMotelDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2025-10-25&checkOutDate=2025-10-26&trackPage=no"
-            target="_blank"
-          >
-            <Button className="capitalize cursor-pointer">
-              check availability
-            </Button>
-          </Link>
-        </div>
-      </div>
       <div className=" w-full bg-white  lg:flex lg:items-center lg:justify-center ">
         <div className="lg:w-[1200px] md:w-[800px] ">
           <Address_Contact />
